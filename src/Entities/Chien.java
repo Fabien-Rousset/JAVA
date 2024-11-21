@@ -18,8 +18,8 @@ public class Chien extends Animal {
      * @param espece L'espèce du chien (ne peut pas être vide).
      * @throws ExoException Si les valeurs fournies ne respectent pas les contraintes définies.
      */
-    public Chien(String race, String nom, int age, String espece) throws ExoException {
-        super(nom, age, espece);  // Appel au constructeur de la classe parente Animal
+    public Chien(String nom, String race,  int age, String espece, String dateDeNaissance) throws ExoException {
+        super(nom, age, espece, dateDeNaissance);  // Appel au constructeur de la classe parente Animal
         setRace(race);            // Initialisation de la race avec validation
     }
 
@@ -31,6 +31,8 @@ public class Chien extends Animal {
     public String getRace() {
         return race;
     }
+
+
 
     /**
      * Setter pour définir la race du chien.

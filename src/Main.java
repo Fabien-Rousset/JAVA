@@ -19,12 +19,6 @@ public class Main {
         lancementApplication();
 
         LOGGER.log(Level.INFO, "L'application a été quittée");
-
-
-
-
-
-
-            }
+                    }
         }
 

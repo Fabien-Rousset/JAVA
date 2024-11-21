@@ -1,5 +1,10 @@
 package Entities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import Utilities.Regex;
+
 /**
  * Classe représentant un animal abstrait.
  * Chaque animal a un nom, une espèce, et un âge.
@@ -9,6 +14,7 @@ public abstract class Animal {
     private String nom;
     private String espece;
     private int age;
+    private LocalDate dateDeNaissance;
 
     /**
      * Constructeur de la classe Animal.
@@ -19,11 +25,34 @@ public abstract class Animal {
      * @param espece L'espèce de l'animal (ne peut pas être vide).
      * @throws ExoException Si les valeurs fournies ne respectent pas les contraintes définies.
      */
-    public Animal(String nom, int age, String espece) throws ExoException {
-        setNom(nom);       // Initialisation du nom avec validation
-        setEspece(espece); // Initialisation de l'espèce avec validation
-        setAge(age);       // Initialisation de l'âge avec validation
+    public Animal(String nom, int age, String espece, String dateDeNaissance) throws ExoException {
+        setNom(nom);                // Initialisation du nom avec validation
+        setEspece(espece);          // Initialisation de l'espèce avec validation
+        setAge(age);                // Initialisation de l'âge avec validation
+        setDateNaissance(dateDeNaissance); // Initialisation de la date de naissance avec validation
     }
+
+    // Getter pour la date de naissance
+    public LocalDate getDateDeNaissance() {
+        return dateDeNaissance;
+    }
+
+    // Setter pour la date de naissance
+    public void setDateNaissance(String date) throws ExoException {
+        // Définir le pattern pour la date au format "jj/mm/aaaa"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        try {
+            // Utiliser LocalDate.parse pour tenter de convertir la date avec le formatter
+            this.dateDeNaissance = LocalDate.parse(date, formatter);
+        } catch (DateTimeParseException de) {
+            // Capturer l'exception et lever une ExoException avec un message d'erreur
+            throw new ExoException("Date de naissance invalide : La date doit être au format jj/mm/aaaa et être valide." + de.getMessage());
+        }
+    }
+
+
+
 
     /**
      * Getter pour obtenir le nom de l'animal.
@@ -40,15 +69,25 @@ public abstract class Animal {
      * @param nom Le nom de l'animal (doit commencer par une majuscule et ne pas être vide).
      * @throws ExoException Si le nom est vide ou ne commence pas par une majuscule.
      */
+//    public void setNom(String nom) throws ExoException {
+//        if (nom == null || nom.isEmpty()) {
+//            throw new ExoException("Le nom ne peut pas être vide.");
+//        }
+//        if (!Character.isUpperCase(nom.charAt(0))) {
+//            throw new ExoException("Le nom doit commencer par une majuscule.");
+//        }
+//        this.nom = nom;
+//    }
+
     public void setNom(String nom) throws ExoException {
-        if (nom == null || nom.isEmpty()) {
-            throw new ExoException("Le nom ne peut pas être vide.");
-        }
-        if (!Character.isUpperCase(nom.charAt(0))) {
-            throw new ExoException("Le nom doit commencer par une majuscule.");
+        // Vérifie si le nom correspond à l'expression régulière définie dans Regex
+        if (nom == null || !Regex.PATTERN_NOM.matcher(nom).matches()) {
+            throw new ExoException("Nom invalide : Le nom doit commencer par une majuscule, ne contenir que des lettres, et comporter au moins 2 caractères.");
         }
         this.nom = nom;
     }
+
+
 
     /**
      * Getter pour obtenir l'espèce de l'animal.
@@ -59,15 +98,18 @@ public abstract class Animal {
         return espece;
     }
 
-    /**
-     * Setter pour définir l'espèce de l'animal.
-     *
-     * @param espece L'espèce de l'animal (ne peut pas être vide).
-     * @throws ExoException Si l'espèce est vide.
-     */
+
+//    public void setEspece(String espece) throws ExoException {
+//        if (espece == null || espece.isEmpty()) {
+//            throw new ExoException("L'espèce ne peut pas être vide.");
+//        }
+//        this.espece = espece;
+//    }
+
     public void setEspece(String espece) throws ExoException {
-        if (espece == null || espece.isEmpty()) {
-            throw new ExoException("L'espèce ne peut pas être vide.");
+        // Vérifie si l'espèce correspond à l'expression régulière définie dans Regex
+        if (espece == null || !Regex.PATTERN_ESPECE.matcher(espece).matches()) {
+            throw new ExoException("Espece invalide : L'espece doit commencer par une majuscule, ne contenir que des lettres, et comporter au moins 3 caractères.");
         }
         this.espece = espece;
     }

@@ -12,14 +12,15 @@ public class Oiseau extends Animal {
      * Constructeur de la classe Oiseau.
      * Prend en paramètre le nombre de plumes, le nom, l'espèce, et l'âge de l'oiseau.
      *
-     * @param nombreDePlumes Le nombre de plumes de l'oiseau (doit être supérieur ou égal à zéro).
-     * @param nom            Le nom de l'oiseau (doit commencer par une majuscule et ne pas être vide).
-     * @param espece         L'espèce de l'oiseau (ne peut pas être vide).
-     * @param age            L'âge de l'oiseau (doit être positif).
-     * @throws ExoException  Si les valeurs fournies ne respectent pas les contraintes définies.
+     * @param nombreDePlumes        Le nombre de plumes de l'oiseau (doit être supérieur ou égal à zéro).
+     * @param nom                   Le nom de l'oiseau (doit commencer par une majuscule et ne pas être vide).
+     * @param espece                L'espèce de l'oiseau (ne peut pas être vide).
+     * @param age                   L'âge de l'oiseau (doit être positif).
+     * @param dateDeNaissance
+     * @throws ExoException Si les valeurs fournies ne respectent pas les contraintes définies.
      */
-    public Oiseau(int nombreDePlumes, String nom, String espece, int age) throws ExoException {
-        super(nom, age, espece);  // Appel au constructeur de la classe parente Animal
+    public Oiseau(int nombreDePlumes, String nom, String espece, int age, String dateDeNaissance) throws ExoException {
+        super(nom, age, espece, dateDeNaissance);  // Appel au constructeur de la classe parente Animal
         setNombreDePlumes(nombreDePlumes);  // Initialisation du nombre de plumes avec validation
     }
 

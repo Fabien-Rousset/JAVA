@@ -41,8 +41,14 @@ public class View {
                         System.out.println("Entrez l'espèce du chien :");
                         String especeChien = scanner.nextLine();
 
+                        System.out.println("Entrez la race du chien :");
+                        String raceChien = scanner.nextLine();
+
+                        System.out.println("Entrer la date de naissance :");
+                        String dateDeNaissanceChien = scanner.nextLine();
+
                         // Crée un objet Chien et l'ajoute à la liste des animaux
-                        Chien chien = new Chien(nomChien, especeChien, ageChien, especeChien);
+                        Chien chien = new Chien(nomChien, raceChien,ageChien,  especeChien, dateDeNaissanceChien);
                         animaux.ajouterAnimal(chien);
 
                         break;
@@ -61,8 +67,15 @@ public class View {
                         System.out.println("Entrez le nombre de plumes de l'oiseau :");
                         int nombreDePlumes = Integer.parseInt(scanner.nextLine());
 
+                        // Demande et lit l'espèce de l'oiseau
+                        System.out.println("Entrez l'espèce de  l'oiseau :");
+                        String especeOiseau = scanner.nextLine();
+
+                        System.out.println("Entrer la date de naissance :");
+                        String dateDeNaissanceOiseau = scanner.nextLine();
+
                         // Crée un objet Oiseau et l'ajoute à la liste des animaux
-                        Oiseau oiseau = new Oiseau(nombreDePlumes, nomOiseau, "Oiseau", ageOiseau);
+                        Oiseau oiseau = new Oiseau(nombreDePlumes, nomOiseau, especeOiseau, ageOiseau, dateDeNaissanceOiseau);
                         animaux.ajouterAnimal(oiseau);
 
                         break;
@@ -78,23 +91,23 @@ public class View {
                         break;
                 }
 
-
+                // Affiche la liste des animaux après chaque ajout
+                if (!choix.equals("quitter")) {
                     System.out.println("\nListe des animaux ajoutés :");
                     animaux.afficherAnimaux();
-
+                }
 
             } catch (NumberFormatException nfe) {
                 System.out.println("Veuillez saisir un nombre entier valide pour l'âge ou le nombre de plumes.");
             } catch (ExoException ee) {
-                // Gestion des exceptions liées à la validation des attributs de l'oiseau
+                // Gestion des exceptions liées à la validation des attributs de l'oiseau/chien
                 System.out.println("Erreur : " + ee.getMessage());
             } catch (Exception e) {
                 LOGGER.log(Level.WARNING, "L'application a été quittée à cause d'une exception", e);
-                System.out.println("Erreur lors de l'application : " + e.getMessage());
+                System.out.println("Erreur  : " + e.getMessage());
                 System.exit(1);
             }
         }
-
 
         System.out.println("Merci d'avoir utilisé l'application. À bientôt !");
     }
