@@ -1,4 +1,6 @@
-package Entities;
+package entities;
+
+import java.time.LocalDate;
 
 /**
  * Classe représentant un oiseau, qui est un type d'animal.
@@ -19,7 +21,7 @@ public class Oiseau extends Animal {
      * @param dateDeNaissance
      * @throws ExoException Si les valeurs fournies ne respectent pas les contraintes définies.
      */
-    public Oiseau(int nombreDePlumes, String nom, String espece, int age, String dateDeNaissance) throws ExoException {
+    public Oiseau(int nombreDePlumes, String nom, String espece, int age, LocalDate dateDeNaissance) throws ExoException {
         super(nom, age, espece, dateDeNaissance);  // Appel au constructeur de la classe parente Animal
         setNombreDePlumes(nombreDePlumes);  // Initialisation du nombre de plumes avec validation
     }

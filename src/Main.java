@@ -1,9 +1,9 @@
 import java.io.IOException;
 import java.util.logging.Level;
 
-import static Logging.MonLogger.LOGGER;
-import static Logging.MonLogger.initialiserLogger;
-import static View.View.lancementApplication;
+import static logging.MonLogger.LOGGER;
+import static logging.MonLogger.initialiserLogger;
+import static view.View.lancementApplication;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Logging;
+package logging;
 
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class MonLogger {
      */
     public static void initialiserLogger() throws IOException {
         // Initialiser un FileHandler pour écrire les logs dans un fichier
-        fileHandler = new FileHandler("src/Logging/MonLogFichier.log", true);
+        fileHandler = new FileHandler("log/MonLogFichier.log", true);
 
         // Ajouter un format simple pour les messages de log
         SimpleFormatter formatter = new SimpleFormatter();

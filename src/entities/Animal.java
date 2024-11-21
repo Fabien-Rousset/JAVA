@@ -1,9 +1,11 @@
-package Entities;
+package entities;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import Utilities.Regex;
+import utilities.Regex;
+
+import static utilities.Regex.DATE_FORMATTER;
 
 /**
  * Classe représentant un animal abstrait.
@@ -25,7 +27,7 @@ public abstract class Animal {
      * @param espece L'espèce de l'animal (ne peut pas être vide).
      * @throws ExoException Si les valeurs fournies ne respectent pas les contraintes définies.
      */
-    public Animal(String nom, int age, String espece, String dateDeNaissance) throws ExoException {
+    public Animal(String nom, int age, String espece, LocalDate dateDeNaissance) throws ExoException {
         setNom(nom);                // Initialisation du nom avec validation
         setEspece(espece);          // Initialisation de l'espèce avec validation
         setAge(age);                // Initialisation de l'âge avec validation
@@ -38,17 +40,8 @@ public abstract class Animal {
     }
 
     // Setter pour la date de naissance
-    public void setDateNaissance(String date) throws ExoException {
-        // Définir le pattern pour la date au format "jj/mm/aaaa"
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        try {
-            // Utiliser LocalDate.parse pour tenter de convertir la date avec le formatter
-            this.dateDeNaissance = LocalDate.parse(date, formatter);
-        } catch (DateTimeParseException de) {
-            // Capturer l'exception et lever une ExoException avec un message d'erreur
-            throw new ExoException("Date de naissance invalide : La date doit être au format jj/mm/aaaa et être valide." + de.getMessage());
-        }
+    public void setDateNaissance(LocalDate date) {
+        this.dateDeNaissance = date;
     }
 
 

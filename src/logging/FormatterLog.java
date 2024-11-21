@@ -1,4 +1,4 @@
-package Logging;
+package logging;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

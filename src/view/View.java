@@ -1,14 +1,17 @@
-package View;
+package view;
 
-import Entities.Animaux;
-import Entities.Chien;
-import Entities.ExoException;
-import Entities.Oiseau;
+import entities.Animaux;
+import entities.Chien;
+import entities.ExoException;
+import entities.Oiseau;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import static Logging.MonLogger.LOGGER;
+import static logging.MonLogger.LOGGER;
+import static utilities.Regex.DATE_FORMATTER;
 
 public class View {
 
@@ -47,8 +50,17 @@ public class View {
                         System.out.println("Entrer la date de naissance :");
                         String dateDeNaissanceChien = scanner.nextLine();
 
+                        LocalDate dateDeNaissanceChienTransforme;
+                        try {
+                            // Utiliser LocalDate.parse pour tenter de convertir la date avec le formatter
+                            dateDeNaissanceChienTransforme = LocalDate.parse(dateDeNaissanceChien, DATE_FORMATTER);
+                        } catch (DateTimeParseException de) {
+                            // Capturer l'exception et lever une ExoException avec un message d'erreur
+                            throw new ExoException("Date de naissance invalide : La date doit être au format jj/MM/aaaa et être valide.");
+                        }
+
                         // Crée un objet Chien et l'ajoute à la liste des animaux
-                        Chien chien = new Chien(nomChien, raceChien,ageChien,  especeChien, dateDeNaissanceChien);
+                        Chien chien = new Chien(nomChien, raceChien, ageChien, especeChien, dateDeNaissanceChienTransforme);
                         animaux.ajouterAnimal(chien);
 
                         break;
@@ -74,8 +86,18 @@ public class View {
                         System.out.println("Entrer la date de naissance :");
                         String dateDeNaissanceOiseau = scanner.nextLine();
 
+
+                        LocalDate dateDeNaissanceOiseauTransforme;
+                        try {
+                            // Utiliser LocalDate.parse pour tenter de convertir la date avec le formatter
+                            dateDeNaissanceOiseauTransforme = LocalDate.parse(dateDeNaissanceOiseau, DATE_FORMATTER);
+                        } catch (DateTimeParseException de) {
+                            // Capturer l'exception et lever une ExoException avec un message d'erreur
+                            throw new ExoException("Date de naissance invalide : La date doit être au format jj/MM/aaaa et être valide.");
+                        }
+
                         // Crée un objet Oiseau et l'ajoute à la liste des animaux
-                        Oiseau oiseau = new Oiseau(nombreDePlumes, nomOiseau, especeOiseau, ageOiseau, dateDeNaissanceOiseau);
+                        Oiseau oiseau = new Oiseau(nombreDePlumes, nomOiseau, especeOiseau, ageOiseau, dateDeNaissanceOiseauTransforme);
                         animaux.ajouterAnimal(oiseau);
 
                         break;
@@ -107,6 +129,8 @@ public class View {
                 System.out.println("Erreur  : " + e.getMessage());
                 System.exit(1);
             }
+
+
         }
 
         System.out.println("Merci d'avoir utilisé l'application. À bientôt !");

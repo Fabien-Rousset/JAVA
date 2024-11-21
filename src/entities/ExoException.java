@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 
 /**
  * Classe représentant une exception personnalisée utilisée pour les contraintes dans l'application.
