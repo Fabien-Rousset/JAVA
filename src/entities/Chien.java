@@ -25,6 +25,13 @@ public class Chien extends Animal {
         setRace(race);            // Initialisation de la race avec validation
     }
 
+    public Chien()  {
+        super();
+
+    }
+
+
+
     /**
      * Getter pour obtenir la race du chien.
      *

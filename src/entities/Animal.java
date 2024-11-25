@@ -34,6 +34,10 @@ public abstract class Animal {
         setDateNaissance(dateDeNaissance); // Initialisation de la date de naissance avec validation
     }
 
+    public Animal() {
+
+    }
+
     // Getter pour la date de naissance
     public LocalDate getDateDeNaissance() {
         return dateDeNaissance;

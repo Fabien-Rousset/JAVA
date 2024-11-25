@@ -26,6 +26,8 @@ public class Oiseau extends Animal {
         setNombreDePlumes(nombreDePlumes);  // Initialisation du nombre de plumes avec validation
     }
 
+    public Oiseau(){};
+
     /**
      * Getter pour obtenir le nombre de plumes de l'oiseau.
      *

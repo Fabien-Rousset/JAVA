@@ -15,6 +15,12 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+log
+
+
+
+JAVA
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
