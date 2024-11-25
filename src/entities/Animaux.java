@@ -56,13 +56,22 @@ public class Animaux {
         listeAnimaux.add(animal);
     }
 
+    // Nouvelle méthode pour obtenir la liste des animaux
+    public ArrayList<Animal> getAnimaux() {
+        return listeAnimaux;
+    }
+
     /**
      * Méthode pour afficher la liste des animaux.
      * Affiche chaque animal dans la console.
      */
     public void afficherAnimaux() {
-        for (Animal animal : listeAnimaux) {
-            System.out.println(animal);
+        if (listeAnimaux.isEmpty()) {
+            System.out.println("Aucun animal n'a été ajouté pour le moment.");
+        } else {
+            for (Object animal : listeAnimaux) {
+                System.out.println(animal.toString());
+            }
         }
     }
 

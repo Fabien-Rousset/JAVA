@@ -151,6 +151,6 @@ public abstract class Animal {
      */
     @Override
     public String toString() {
-        return "Je m'appelle " + this.nom + ", j'ai " + this.age + " ans.";
+        return "Je m'appelle " + this.nom + ", j'ai " + this.age + " ans." + " ma date de naissance est: " + this.dateDeNaissance + "je suis de l'espece: " + this.espece;
     }
 }

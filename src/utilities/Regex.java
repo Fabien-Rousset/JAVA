@@ -11,6 +11,7 @@ public class Regex {
     // Déclaration de l'expression régulière pour valider une espece (commence par une Maj, ne contient que de lettres & min 3 caractères)
     public static final Pattern PATTERN_ESPECE = Pattern.compile("^[a-z][a-zA-Z]{2,}$");
 
+    // Déclarartion de la regex pour le format date jj/mm/aaaa
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 
