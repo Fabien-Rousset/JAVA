@@ -13,8 +13,19 @@ import java.util.logging.Level;
 import static logging.MonLogger.LOGGER;
 import static utilities.Regex.DATE_FORMATTER;
 
+/**
+ * La classe {@code View} représente l'interface utilisateur pour gérer l'ajout d'animaux.
+ * Elle permet à l'utilisateur d'ajouter des chiens ou des oiseaux à une liste, ainsi que de lister tous les animaux ajoutés.
+ */
 public class View {
 
+    /**
+     * Méthode principale pour lancer l'application. Fournit une interface utilisateur permettant d'ajouter des animaux
+     * (chien ou oiseau), de les lister ou de quitter l'application.
+     * <p>
+     * Utilise la classe {@link Animaux} pour gérer la collection des animaux.
+     * Permet de saisir les détails des animaux depuis l'entrée utilisateur et gère les exceptions courantes.
+     */
     public static void lancementApplication() {
 
         Scanner scanner = new Scanner(System.in);
@@ -43,10 +54,11 @@ public class View {
                         System.out.println("Entrez l'espèce de l'animal :");
                         String especeAnimal = scanner.nextLine();
 
+                        // Demande et lit la date de naissance, avec gestion d'erreur
                         System.out.println("Entrer la date de naissance :");
                         String dateDeNaissanceAnimal = scanner.nextLine();
-
                         LocalDate dateDeNaissanceTransforme;
+
                         try {
                             dateDeNaissanceTransforme = LocalDate.parse(dateDeNaissanceAnimal, DATE_FORMATTER);
                         } catch (DateTimeParseException de) {
@@ -69,7 +81,6 @@ public class View {
                             Oiseau oiseau = new Oiseau(nombreDePlumes, nomAnimal, especeAnimal, ageAnimal, dateDeNaissanceTransforme);
                             animaux.ajouterAnimal(oiseau);
                         }
-
                         break;
 
                     case "lister":
