@@ -52,3 +52,7 @@ class AnimalTest {
         assertFalse(Regex.PATTERN_ESPECE.matcher(espece).matches(), "L'espèce '" + espece + "' devrait être invalide mais est considérée comme valide.");
     }
 }
+
+
+
+

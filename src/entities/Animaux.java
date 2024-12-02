@@ -10,8 +10,9 @@ import java.util.Comparator;
  */
 public class Animaux {
 
+
     // listeAnimaux est une ArrayList typée pour contenir uniquement des objets de type Animal.
-    private final ArrayList<Animal> listeAnimaux = new ArrayList<>();
+    public static ArrayList<Animal> listeAnimaux = new ArrayList<>();
 
     /**
      * Comparateur pour trier les animaux par nom.

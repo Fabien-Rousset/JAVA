@@ -8,3 +8,222 @@ nov. 25, 2024 9:21:29 AM Main main
 INFOS: L'application a été quittée
 nov. 25, 2024 9:24:10 AM Main main
 INFOS: Lancement de l'application
+nov. 26, 2024 10:18:40 AM Main main
+INFOS: Lancement de l'application
+déc. 02, 2024 11:35:33 AM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 11:36:40 AM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 11:40:30 AM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 11:40:55 AM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 11:40:55 AM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 11:55:27 AM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 11:55:27 AM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 11:56:01 AM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 11:56:01 AM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 1:04:43 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:04:44 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 1:13:11 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:14:00 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:16:39 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:17:00 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:21:36 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:21:36 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 1:32:06 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:32:06 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 1:48:18 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 1:48:18 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 2:39:01 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 2:39:01 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 3:34:41 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 3:34:42 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:23:59 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:24:00 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:24:52 PM view.MiseAJour onOK
+WARNING: Erreur de parsing de la date
+java.time.format.DateTimeParseException: Text '25/05/2005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:435)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:420)
+	at view.MiseAJour.onOK(MiseAJour.java:101)
+	at view.MiseAJour$1.actionPerformed(MiseAJour.java:71)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3398)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+déc. 02, 2024 4:24:57 PM view.MiseAJour onOK
+WARNING: Erreur de parsing de la date
+java.time.format.DateTimeParseException: Text '25/05/2005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:435)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:420)
+	at view.MiseAJour.onOK(MiseAJour.java:101)
+	at view.MiseAJour$1.actionPerformed(MiseAJour.java:71)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3398)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+déc. 02, 2024 4:25:12 PM view.MiseAJour onOK
+WARNING: Erreur de parsing de la date
+java.time.format.DateTimeParseException: Text '25/05/2005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:435)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:420)
+	at view.MiseAJour.onOK(MiseAJour.java:101)
+	at view.MiseAJour$1.actionPerformed(MiseAJour.java:71)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3398)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+déc. 02, 2024 4:27:45 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:27:45 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:39:54 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:39:54 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:43:12 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:43:12 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:45:07 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:45:08 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:45:31 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:45:31 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:46:24 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:46:24 PM Main main
+INFO: L'application a été quittée
+déc. 02, 2024 4:55:39 PM Main main
+INFO: Lancement de l'application
+déc. 02, 2024 4:55:40 PM Main main
+INFO: L'application a été quittée
