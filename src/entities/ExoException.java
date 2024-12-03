@@ -14,4 +14,8 @@ public class ExoException extends Exception {
     public ExoException(String message) {
         super(message);  // Appel au constructeur de la classe parente Exception pour initialiser le message d'erreur
     }
+
+    public ExoException(String message, Throwable cause) {
+        super(message, cause); // Constructeur avec message et cause
+    }
 }

@@ -106,7 +106,7 @@ public abstract class Animal {
     public void setEspece(String espece) throws ExoException {
         // Vérifie si l'espèce correspond à l'expression régulière définie dans Regex
         if (espece == null || !Regex.PATTERN_ESPECE.matcher(espece).matches()) {
-            throw new ExoException("Espece invalide : L'espece doit commencer par une majuscule, ne contenir que des lettres, et comporter au moins 3 caractères.");
+            throw new ExoException("Espece invalide : L'espece ne commence pas par une majuscule, ne contenir que des lettres, et comporter au moins 3 caractères.");
         }
         this.espece = espece;
     }

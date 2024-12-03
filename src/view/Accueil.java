@@ -5,6 +5,8 @@ import java.awt.event.*;
 
 import utilities.AnimauxChoix;
 
+import static entities.Animaux.listeAnimaux;
+
 /**
  * Classe Accueil représente la fenêtre principale de l'application qui permet de choisir entre différents animaux et exécuter des opérations CRUD.
  * Cette classe étend JFrame et offre des options pour "Chien" et "Oiseau".
@@ -37,6 +39,7 @@ public class Accueil extends JFrame {
         initFrame(); // Initialise la fenêtre principale
         listeners(); // Ajoute les listeners pour les boutons
         afficherPanel(); // Masque les panneaux "crud" et "updateDelete" au démarrage
+
     }
 
     /**
@@ -72,27 +75,50 @@ public class Accueil extends JFrame {
 
         // Listener pour le bouton "Chien"
         chienButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 crud.setVisible(true); // Affiche le panneau CRUD lorsque le bouton "Chien" est cliqué
                 animauxChoix = AnimauxChoix.CHIEN; // Définit la sélection de l'animal sur "Chien"
+
 
             }
         });
 
         // Listener pour le bouton "Oiseau"
         oiseauButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 crud.setVisible(true); // Affiche le panneau CRUD lorsque le bouton "Oiseau" est cliqué
                 animauxChoix = AnimauxChoix.OISEAU; // Définit la sélection de l'animal sur "Oiseau"
+
             }
         });
 
         // Listener pour le bouton "Créer"
         creerButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 new MiseAJour(animauxChoix).setVisible(true); // Ouvre une nouvelle fenêtre pour mettre à jour l'animal sélectionné
+                dispose();
             }
         });
+
+        lireButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ListeAnimaux(animauxChoix).setVisible(true);
+                dispose();
+            }
+        });
+
+        modifierButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateDelete.setVisible(true);
+            }
+        });
+
+
 
         // Listener pour la fermeture de la fenêtre par la croix (fermeture par défaut)
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);

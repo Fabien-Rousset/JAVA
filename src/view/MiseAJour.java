@@ -10,6 +10,7 @@ import view.Accueil;
 import javax.swing.*;
 import java.awt.event.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -46,7 +47,6 @@ public class MiseAJour extends JFrame {
      */
     public MiseAJour(AnimauxChoix animauxChoix) {
         getRootPane().setDefaultButton(buttonOK); // Définit le bouton OK comme le bouton par défaut quand "Entrée" est pressée
-
         listeners(); // Ajoute les listeners pour les boutons
 
         this.animauxChoix = animauxChoix; // Stocke l'animal sélectionné pour la mise à jour
@@ -113,7 +113,10 @@ public class MiseAJour extends JFrame {
             String nom = nomAnimalTextField.getText();
             String espece = especAnimalTextField.getText();
             int age = Integer.parseInt(ageAnimalTextField.getText());
-            LocalDate dateDeNaissance = LocalDate.parse(dateDeNaissanceAnimalTextField.getText());
+
+            // Formatter pour le format de date attendu
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dateDeNaissance = LocalDate.parse(dateDeNaissanceAnimalTextField.getText(), formatter);
 
             // Vérifier le type d'animal et créer un objet correspondant
             if (animauxChoix == AnimauxChoix.CHIEN) {
