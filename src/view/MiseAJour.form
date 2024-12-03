@@ -117,7 +117,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="nomAnimal"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="bb27c" class="javax.swing.JTextField" binding="especAnimalTextField" default-binding="true">
@@ -127,7 +127,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="especAnimal"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="ec573" class="javax.swing.JTextField" binding="ageAnimalTextField" default-binding="true">
@@ -137,7 +137,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="ageAnimal"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="dcf53" class="javax.swing.JTextField" binding="dateDeNaissanceAnimalTextField" default-binding="true">
@@ -147,7 +147,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="dateDeNaissanceAnimal"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="5571" class="javax.swing.JTextField" binding="raceChienTextField" default-binding="true">
@@ -157,7 +157,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="raceChien"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="e21db" class="javax.swing.JTextField" binding="nombreDePlumesOiseauxTextField" default-binding="true">
@@ -167,7 +167,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="nombreDePlumesOiseaux"/>
+              <text value=""/>
             </properties>
           </component>
         </children>

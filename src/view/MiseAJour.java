@@ -1,18 +1,13 @@
 package view;
 
-import entities.Animaux;
-import entities.Chien;
-import entities.ExoException;
-import entities.Oiseau;
+import entities.*;
 import utilities.AnimauxChoix;
-import view.Accueil;
 
 import javax.swing.*;
 import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Date;
 import java.util.logging.Level;
 
 import static logging.MonLogger.LOGGER;
@@ -24,6 +19,8 @@ import static logging.MonLogger.LOGGER;
  * <p>Elle offre des champs pour renseigner des informations spécifiques en fonction du type d'animal sélectionné.</p>
  */
 public class MiseAJour extends JFrame {
+    private boolean isModification = false; // Indique si la fenêtre est en mode modification ou création
+    private Animal animal = null; // Référence de l'animal à modifier, s'il y en a un
     // Déclaration des différents composants Swing utilisés dans la classe
     private JPanel contentPane; // Panneau principal de la fenêtre
     private JButton buttonOK; // Bouton pour confirmer la mise à jour
@@ -34,8 +31,8 @@ public class MiseAJour extends JFrame {
     private JTextField dateDeNaissanceAnimalTextField; // Champ de texte pour la date de naissance de l'animal
     private JTextField raceChienTextField; // Champ de texte pour la race du chien (utilisé si l'animal est un chien)
     private JTextField nombreDePlumesOiseauxTextField; // Champ de texte pour le nombre de plumes (utilisé si l'animal est un oiseau)
-    private JLabel labelPLumes;
-    private JLabel labelRace;
+    private JLabel labelPLumes; // Label pour indiquer le champ des plumes (visible seulement pour un oiseau)
+    private JLabel labelRace; // Label pour indiquer le champ de la race (visible seulement pour un chien)
 
     private AnimauxChoix animauxChoix; // Enum qui stocke le type d'animal sélectionné (Chien ou Oiseau)
 
@@ -46,22 +43,46 @@ public class MiseAJour extends JFrame {
      * @param animauxChoix Le type d'animal (Chien ou Oiseau) sélectionné pour la mise à jour.
      */
     public MiseAJour(AnimauxChoix animauxChoix) {
+        this.animauxChoix = animauxChoix; // Stocke le type d'animal sélectionné pour la mise à jour
         getRootPane().setDefaultButton(buttonOK); // Définit le bouton OK comme le bouton par défaut quand "Entrée" est pressée
+        initFrame(); // Initialise la fenêtre et ses composants
+        listeners(); // Ajoute les listeners pour les boutons
+    }
+
+    /**
+     * Deuxième constructeur de la classe MiseAJour.
+     * Permet d'initialiser la fenêtre en mode modification avec les informations de l'animal existant.
+     *
+     * @param animauxChoix Le type d'animal (Chien ou Oiseau) à mettre à jour.
+     * @param isModification True si c'est pour une modification, false pour une création.
+     * @param animal L'animal à modifier (peut être null si c'est une création).
+     */
+    public MiseAJour(AnimauxChoix animauxChoix, boolean isModification, Animal animal) {
+        this.animauxChoix = animauxChoix;
+        this.isModification = isModification;
+        this.animal = animal;
+
+        getRootPane().setDefaultButton(buttonOK); // Définit le bouton OK comme le bouton par défaut quand "Entrée" est pressée
+        initFrame(); // Initialise la fenêtre et ses composants
         listeners(); // Ajoute les listeners pour les boutons
 
-        this.animauxChoix = animauxChoix; // Stocke l'animal sélectionné pour la mise à jour
-        initFrame(); // Initialise la fenêtre et ses composants
+        if (isModification && animal != null) {
+            preRemplirChamps(); // Pré-remplit les champs de texte avec les informations de l'animal
+        }
     }
 
     /**
      * Initialise les propriétés de la fenêtre de mise à jour.
-     * Définit le titre, la taille et le contenu principal de la fenêtre.
+     * Définit le titre, la taille, le contenu principal de la fenêtre et masque les champs inutilisés.
      */
     private void initFrame() {
         setTitle("MiseAJour"); // Définit le titre de la fenêtre
         setContentPane(contentPane); // Définit le panneau principal
         setSize(600, 400); // Définit la taille de la fenêtre
         setVisible(false); // La fenêtre n'est pas visible par défaut
+        if (!isModification) {
+            preRemplirChampsNonEditable();
+        }
 
         // Masquer les champs et labels en fonction de l'animal sélectionné
         if (animauxChoix == AnimauxChoix.CHIEN) {
@@ -73,6 +94,55 @@ public class MiseAJour extends JFrame {
         }
     }
 
+    /**
+     * Pré-remplit les champs de saisie avec les informations de l'animal si une modification est en cours.
+     * Cela facilite la mise à jour en affichant les informations existantes.
+     */
+    public void preRemplirChamps() {
+        // Remplir les champs de saisie avec les informations de l'animal existant
+        nomAnimalTextField.setText(animal.getNom());
+        especAnimalTextField.setText(animal.getEspece());
+        ageAnimalTextField.setText(String.valueOf(animal.getAge()));
+        dateDeNaissanceAnimalTextField.setText(animal.getDateDeNaissance().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
+        // Cacher ou afficher les champs spécifiques selon le type d'animal
+        if (animal instanceof Chien) {
+            raceChienTextField.setText(((Chien) animal).getRace());
+            labelPLumes.setVisible(false);
+            nombreDePlumesOiseauxTextField.setVisible(false);
+        } else if (animal instanceof Oiseau) {
+            nombreDePlumesOiseauxTextField.setText(String.valueOf(((Oiseau) animal).getNombreDePlumes()));
+            labelRace.setVisible(false);
+            raceChienTextField.setVisible(false);
+        }
+    }
+
+    public void preRemplirChampsNonEditable() {
+        // Remplir les champs de saisie avec les informations de l'animal existant
+        nomAnimalTextField.setText(animal.getNom());
+        especAnimalTextField.setText(animal.getEspece());
+        ageAnimalTextField.setText(String.valueOf(animal.getAge()));
+        dateDeNaissanceAnimalTextField.setText(animal.getDateDeNaissance().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
+        nomAnimalTextField.setEditable(false);
+        especAnimalTextField.setEditable(false);
+        ageAnimalTextField.setEditable(false);
+        dateDeNaissanceAnimalTextField.setEditable(false);
+
+        // Cacher ou afficher les champs spécifiques selon le type d'animal
+        if (animal instanceof Chien) {
+            raceChienTextField.setText(((Chien) animal).getRace());
+            labelPLumes.setVisible(false);
+            nombreDePlumesOiseauxTextField.setVisible(false);
+        } else if (animal instanceof Oiseau) {
+            nombreDePlumesOiseauxTextField.setText(String.valueOf(((Oiseau) animal).getNombreDePlumes()));
+            labelRace.setVisible(false);
+            raceChienTextField.setVisible(false);
+        }
+
+        raceChienTextField.setEditable(false);
+        nombreDePlumesOiseauxTextField.setEditable(false);
+    }
 
     /**
      * Ajoute les listeners pour les différents boutons et les actions clavier.
@@ -82,7 +152,6 @@ public class MiseAJour extends JFrame {
         // Listener pour le bouton "OK" qui confirme la mise à jour
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
                 onOK(); // Exécute la méthode onOK() quand le bouton OK est cliqué
             }
         });
@@ -104,8 +173,8 @@ public class MiseAJour extends JFrame {
 
     /**
      * Méthode appelée lorsque l'utilisateur appuie sur le bouton OK.
-     * Permet de valider les modifications et de fermer la fenêtre.
-     * Cette méthode récupère les valeurs des champs de texte et crée un nouvel objet Chien ou Oiseau en fonction du type sélectionné.
+     * Permet de valider les modifications ou la création et de fermer la fenêtre.
+     * Cette méthode récupère les valeurs des champs de texte et crée ou met à jour un objet Chien ou Oiseau en fonction du type sélectionné.
      */
     private void onOK() {
         try {
@@ -118,21 +187,17 @@ public class MiseAJour extends JFrame {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate dateDeNaissance = LocalDate.parse(dateDeNaissanceAnimalTextField.getText(), formatter);
 
-            // Vérifier le type d'animal et créer un objet correspondant
+            // Vérifier le type d'animal et créer ou mettre à jour un objet correspondant
             if (animauxChoix == AnimauxChoix.CHIEN) {
-                nombreDePlumesOiseauxTextField.setVisible(false);
                 String race = raceChienTextField.getText();
                 Chien chien = new Chien(nom, race, age, espece, dateDeNaissance);
-                Animaux.listeAnimaux.add(chien);
-                JOptionPane.showMessageDialog(null," Le chien a bien été créé");
-                JOptionPane.showMessageDialog(null, chien.toString());
+                Animaux.listeAnimaux.add(chien); // Ajoute l'animal à la liste d'animaux
+                JOptionPane.showMessageDialog(null, "Le chien a bien été créé ou mis à jour ou supprimer.");
             } else if (animauxChoix == AnimauxChoix.OISEAU) {
                 int nombreDePlumes = Integer.parseInt(nombreDePlumesOiseauxTextField.getText());
-                raceChienTextField.setVisible(false);
                 Oiseau oiseau = new Oiseau(nombreDePlumes, nom, espece, age, dateDeNaissance);
-                Animaux.listeAnimaux.add(oiseau);
-                JOptionPane.showMessageDialog(null," L'oiseau a bien été créé");
-                JOptionPane.showMessageDialog(null, oiseau.toString());
+                Animaux.listeAnimaux.add(oiseau); // Ajoute l'animal à la liste d'animaux
+                JOptionPane.showMessageDialog(null, "L'oiseau a bien été créé ou mis à jour ou supprimer.");
             }
         } catch (DateTimeParseException de) {
             LOGGER.log(Level.WARNING, "Erreur de parsing de la date", de);
@@ -155,7 +220,6 @@ public class MiseAJour extends JFrame {
      * Ferme simplement la fenêtre sans enregistrer de modifications.
      */
     private void onCancel() {
-        // Ajoutez ici votre logique pour gérer l'annulation si nécessaire
         dispose(); // Ferme la fenêtre après annulation
     }
 }

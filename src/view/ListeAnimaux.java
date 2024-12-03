@@ -48,7 +48,7 @@ public class ListeAnimaux extends JFrame {
         setTitle("Liste Animaux"); // Définit le titre de la fenêtre
         setSize(600, 400); // Définit la taille de la fenêtre
         setVisible(false); // La fenêtre est invisible par défaut
-        listeners(); // Configure les écouteurs d'événements
+
 
     }
 
